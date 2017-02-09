@@ -1,0 +1,14 @@
+﻿////////
+OVERVIEW
+////////
+
+- We'll compare == and object.Equals()
+- For value types, you can't use == unless it's been overloaded.
+- If you override object.Equals(), you should overload == too.
+- The == operator doesn't work well with: Inheritance & Generics
+
+///////////
+== Integers
+///////////
+
+- == is not the same as calling object.Equals()

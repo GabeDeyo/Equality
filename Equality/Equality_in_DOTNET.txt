@@ -1,1 +1,88 @@
-﻿
+﻿//////////////////////////////////
+The Virtual Object.Equals() Method
+//////////////////////////////////
+
+- == is provided by the C# language - not part of .NET!
+- .NET has no concept of operators
+- In this project i'll only use .NET methods to show how they work
+
+- object.Equals() evaluates reference equality (unless overridden)
+
+////////////////////
+Equals() for Strings
+////////////////////
+
+- object.Equals() has been overridden for string
+- The string override of object.Equals() compares values
+- Override of object.Equals() exists for: string, tuples, and delegates
+
+////////////////////////
+Equals() for Value Types
+////////////////////////
+
+- Reference equality is meaningless for structs
+- By default, object.Equals() compares values for structs
+- Can do this because it calls Equals() agains every containerd field 
+	and returns true only if all fields are equal.
+- Unfortunatly this uses reflection to find the fields which results in
+	poor performance.
+- It is recommended that it's best to override for your own value types
+	to avoid reflection.
+
+//////
+REVIEW
+//////
+
+- Reference Equality is derived from System.Object (Same instance)
+- Value Equality is derived from System.ValueType (all fields are equal)
+- Any type can override the default behaviour
+
+//////////////////////
+Static Equals() Method
+//////////////////////
+
+- In .NET: null should NEVER equals any non-null reference
+- In .NET: null ALWAYS equals null
+
+- Static method gives same results as the virtual method 
+	(except for extra null checking)
+
+////////////////////////
+ReferenceEquals() Method
+////////////////////////
+
+- Used to check whether two variables refer to the same instance
+- Usually comapres references - but not if overridden
+- static methods are NEVER overridable, so ReferenceEquals() behaviour cannot be changed
+
+/////////////
+IEquatable<T>
+/////////////
+
+- Solve Type issues by passing Type of objects being compared
+	public bool Equals(T other) {}
+- This would solve bosing and type safety, but hard to make work with inheritance.
+
+- IEquatable<T> is not good for Reference Types
+-- No boxing issue to fix.
+-- Problems with inheritance.
+-- But IEquatable<T> is implemented by string
+-- string is sealed, so no inheritance issues
+
+- Equality should be consistent!
+-- public override bool Equals(object other){...}
+-- public bool Equals(T other) {...}
+--- Both methods should do the same thing!
+--- So if you implement IEquatable<T>, then you should override object.Equals() too.
+
+///////
+Summary
+///////
+
+- Several methods are defined on object.
+-- Including object.Equals()
+-Reference equality for reference types, value equality for value types.
+- You can override object.Equals()
+-- eg. strings, delegates, tuples
+- Static Equals() method to allow for null parameters.
+- IEquatable<T> avoids boxing and gives type safety.
