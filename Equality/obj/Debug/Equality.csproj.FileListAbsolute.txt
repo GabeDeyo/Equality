@@ -1,0 +1,6 @@
+c:\users\gdeyo\documents\visual studio 2015\Projects\Equality\Equality\bin\Debug\Equality.exe.config
+c:\users\gdeyo\documents\visual studio 2015\Projects\Equality\Equality\bin\Debug\Equality.exe
+c:\users\gdeyo\documents\visual studio 2015\Projects\Equality\Equality\bin\Debug\Equality.pdb
+c:\users\gdeyo\documents\visual studio 2015\Projects\Equality\Equality\obj\Debug\Equality.csprojResolveAssemblyReference.cache
+c:\users\gdeyo\documents\visual studio 2015\Projects\Equality\Equality\obj\Debug\Equality.exe
+c:\users\gdeyo\documents\visual studio 2015\Projects\Equality\Equality\obj\Debug\Equality.pdb

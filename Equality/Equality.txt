@@ -1,0 +1,77 @@
+﻿/////////////////////
+Why is Equality Hard?
+/////////////////////
+
+1. Reference/Value Equaltiy
+2. Multiple ways to compare values
+3. Accuracy(for floating points)
+4. Conflict with OOP
+
+///////////////////////////
+Reference vs Value Equality
+///////////////////////////
+
+- Reference types contain a pointer to the value
+- 1. Do two things point to the same location in memory? (Ref Equality || Identity)
+- 2. Do the variables share the same value? (Value Equality)
+
+- Reference Equality = quick performance (do x & y contain the same address?)
+- Value Equality = slow performance (Must check every field/property)
+- == evaulates value equality for strings
+
+/////////////////////////////////
+Equality, Value Types, and Boxing
+/////////////////////////////////
+
+- Casting value types to object boxes them (then == does reference equality)
+- Casting value types to interfaces boxes them (then == does reference equality)
+
+///////////////////////////////
+Multiple Ways to Compare Values
+///////////////////////////////
+
+- Should you ignore case 
+- 1. Searching for "Apple Pie" recipe in database (Case won't matter)
+- 2. "Apple Pie" is the password for some user (Case does matter)
+
+- String comparisons are always case sensitive unless special method is used
+- Equality is not an aboslute... equality is often context-sensitive
+
+- Context sensitive examples
+- 1. Whitespace used
+- 2. Database Records
+
+//////////////////////////////
+Natural vs Plugged-in Equality
+//////////////////////////////
+
+- In .NET: Each type can define its own 'natural' equality
+- Eg. string: Equal if they contain exactly the same sequence of characters (case & whitespace sensitive)
+- But you can plug in alternative equality definitiions, using... An Equality Comparer
+- Ex. You could write an equality comparer to compare strings - ignoring excess whitespace
+
+////////////////////////////
+Equality for Floating Points
+////////////////////////////
+
+- Some data types are inherently apporximate:
+- 1. Float
+- 2. Double
+- 3. Decimal
+
+- 6.0000000f == 6.00000001f // true
+
+- Rounding errors in floating point variables can cause == to give the 'wrong' answer
+- It's RECOMMENDED that you don't do equality comparisons on floating points
+- Doesn't normally effect less-than/greater-than comparisons
+
+////////
+Summary
+////////
+
+- C# doesn't distinguish value/ref equality
+-- Hard to predict what == will do
+- Often, multiple ways to do equality for a type
+-- .NET provides for custom equality comparers
+- Don't test floating points for equality
+- Inherent conflict between OOP, type safety and equality
