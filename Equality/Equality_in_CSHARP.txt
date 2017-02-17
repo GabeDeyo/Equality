@@ -12,3 +12,9 @@ OVERVIEW
 ///////////
 
 - == is not the same as calling object.Equals()
+- == and object.Equals() will result in the same result in this case however.
+
+//////////
+== Buttons
+//////////
+

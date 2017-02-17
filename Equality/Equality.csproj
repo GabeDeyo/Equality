@@ -51,6 +51,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Equality_in_CSHARP.txt" />
     <Content Include="Equality_in_DOTNET.txt" />
     <Content Include="Equality.txt" />
   </ItemGroup>
